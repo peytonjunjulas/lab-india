@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lab-India</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+
+  <div class = "header"> 
+    <h1> Peytons Outdoor Equipment Rentals </h1>
+    <button type = "button" class = "btn btn-secondary" id = "loadJson"> Load Favorite Customer Profile </button>
+  </div>
+
+  <br>
+
+  <div class = "card">
+    <div class = "card-header">
+      <h5> Enter Your Personal Information </h5>
+    </div>
+    <div class = "card-body">
+        <div class = "row">
+          <div class = "col-sm-8">
+            <label for = "fName"> First name: </label>
+            <input type = "text" style = "width: 218px" placeholder = "Ex: John" id = "fName" name = "fName">
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+          <div class = "col-sm-8">
+            <label for = "lName"> Last name: </label>
+            <input type = "text" style = "width: 221px" placeholder = "Ex: Doe" id = "lName" name = "lName">
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+          <div class = "col-sm-8">
+            <label for = "pNumber"> Phone number: </label>
+            <input type = "text" placeholder = "Ex: (xxx)-xxx-xxxx" id = "pNumber" name = "pNumber">
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+          <div class = "col-sm-8">
+            <label for = "email"> Email: </label>
+            <input type = "text" style = "width: 255px" placeholder = "Ex: johndoe@gmail.com" id = "email" name = "email">
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+          <div class = "col-sm-8">
+            <label for = "DOB"> Birthdate: </label>
+            <input type = "date"  style = "width: 230px" placeholder = "MM/DD/YYYY" id = "DOB" name = "DOB">
+          </div>
+        </div>
+        <br>
+    </div>
+  </div>
+
+  <br>
+
+  <div class = "card" id = "equipDiv">
+    <div class = "card-header">
+      <h5> Equipment Rental </h5>
+    </div>
+    <div class = "card-body">
+      <p> Eno Hammocks: </p>
+      <input type = "radio" name = "hamockType" value = "singleNest">
+      <label for = "singleNest" name = "hamockType"> Single Nest: $25.00  </label>
+      <br>
+      <input type = "radio" name = "hamockType" value = "doubleNest">
+      <label for = "doubleNest" name = "hamockType"> Double Nest: $30.00 </label>
+      <br>
+      <input type = "radio"  name = "hamockType" value = "tripleNest">
+      <label for = "tripleNest" name = "hamockType"> Triple Nest: $40.00 </label>
+      <br>
+      <button type = "button" class = "btn btn-secondary" id = "clearEno" onclick = "clearHamock()"> Clear </button>
+
+      <br>
+      <br>
+
+      <p> Kayaks: </p>
+      <input type = "radio" name = "kayakType" value = "singleKayak">
+      <label for = "singleKayak"> Single Kayak: $60.00 </label>
+      <br>
+      <input type = "radio" name = "kayakType" value = "doubleKayak">
+      <label for = "doubleKayak"> Double Kayak: $65.00 </label>
+      <br>
+      <input type = "radio" name = "kayakType" value = "tripleKayak">
+      <label for = "tripleKayak"> Triple Kayak: $70.00 </label>
+      <br>
+      <button type = "button" class = "btn btn-secondary" id = "clearBoat" onclick = "clearKayak()"> Clear </button>
+
+      <br>
+      <br>
+
+      <p> Canoes:  </p>
+      <input type = "radio" name = "canoeType" value = "traditional">
+      <label for = "traditional"> Traditional Canoe: $75.00 </label>
+      <br>
+      <input type = "radio" name = "canoeType" value = "fishing">
+      <label for = "fishing"> Fishing Canoe: $80.00 </label>
+      <br>
+      <button type = "button" class = "btn btn-secondary" id = "clearSelectionCanoe" onclick = "clearCanoe()"> Clear </button>
+
+      <br>
+      <br>
+
+      <p> Select Rental Period: </p>
+      <label for = "beginningDate"> Begin Rental Period: </label>
+      <input type = "date" id = "beginningDate" name = "beginningDate">
+      <br>
+      <br>
+      <label for = "endingDate"> End Rental Period: </label>
+      <input type = "date" id = "endingDate" name = "endingDate">
+      <br>
+      <br>
+      
+      <label for = "timeFrame" class = "form-label">Pick up time: </label>
+      <select
+        id = "timeFrame"
+        class = "form-select"
+        type = "select"
+        name = "timeFrame"
+      >
+      <option value = "" disabled selected> Select time frame </option>
+      <option value = "morning"> Morning </option>
+      <option value = "midDay"> Mid-Day </option>
+      <option value = "afternoon"> Afternoon </option>
+      <option value = "evening"> Evening </option>
+      </select>
+      <hr />
+      <label for = "pickupTime" class = "form-label"> Exact time </label>
+      <select
+        id = "pickupTime"
+        class = "form-select"
+        type = "select"
+        name = "pickupTime"
+        disabled
+      >
+      <option> Select time frame first </option>    
+      </select>
+
+    </div>
+  </div>
+  
+  <br>
+
+  <div class = "card">
+    <div class = "card-header">
+      <h5> Payment Information </h5>
+    </div>
+    <div class = "card-body">
+      <p> Name on Card: </p>
+      <label for = "cardFName"> First name: </label>
+      <input type = "text" id = "cardFName" name = "cardFName">
+      <label for = "middle"> Middle initial: </label>
+      <input type = "text" id = "middle" name = "middle" style = "width: 30px">
+      <label for = "cardLName"> Last name: </label>
+      <input type = "text" id = "cardLName" name = "cardLName">
+      <br>
+      <br>
+      <p> Card Provider: </p>
+      <select>
+        <option value = "visa"> Visa </option>
+        <option value = "masterCard"> Master Card </option>
+      </select>
+      <br>
+      <br>
+      <label for = "cardNumber"> Card number: </label>
+      <input type = "text" placeholder = "xxxx-xxxx-xxxx-xxxx" id = "cardNumber" name = "cardNumber">
+      <label for = "expDate"> Exp. date: </label>
+      <input type = "text" placeholder = "MM/YY" style = "width: 70px" id = "expDate" name = "expDate">
+      <label for = "cvvNumber"> CVV: </label> 
+      <input type = "text" placeholder = "xxx" style = "width: 40px" id = "cvvNumber" name = "cvvNumber">
+      <br>
+      <br>
+      <button type = "button" id = "submitFormRental" class = "btn btn-primary" data-bs-toggle = "modal" data-bs-target = "#customerModal"> Submit </button>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> Customer Information Received </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id = "customerArea">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <div class = "footer">
+    <h5> <a href = "https://github.com/peytonjunjulas/lab-india" > Repo  </a> <span> || </span> <a href = ""> Validation </a> </h5>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<script src="./scripts/script.js"></script>
+<script src = "./scripts/ajax.js"></script>
+
+</body>
+</html>
